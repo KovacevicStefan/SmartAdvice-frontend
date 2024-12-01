@@ -1,0 +1,25 @@
+<div class="bgd">
+    <div class="container">
+      <div class="login-form">
+        <div class="py-5">
+          <div class="form-before">
+            <h1>LOGIN</h1>
+            <p>Unesite korisničko ime i lozinku!</p>
+          </div>
+          <div class="form">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <div class="form-outline form-white mb-4 width margin-bottom">
+                <input type="text" formControlName="username" placeholder="Username" class="form-control form-control-lg" />
+              </div>
+              <div class="form-outline form-white mb-4 width">
+                <input type="password" formControlName="password" placeholder="Password" class="form-control form-control-lg" />
+              </div>
+              <br>
+              <button type="submit" class="btn btn-outline-secondary login-btn">LOGIN</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

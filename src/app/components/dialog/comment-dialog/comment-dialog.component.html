@@ -1,0 +1,28 @@
+<div class="container" *ngIf="data.flag !== 3">
+  <h3 mat-dialog-title *ngIf="data.flag === 1">Dodaj komentar</h3>
+  <h3 mat-dialog-title *ngIf="data.flag === 2">Izmeni komentar</h3>
+  <form class="mat-dialog-content" #formControl="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Ime i prezime" name="imePrezime" [(ngModel)]="commentData.imePrezime" required>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea class="text" matInput placeholder="Komentar" name="komentar" [(ngModel)]="commentData.text" required></textarea>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button type="submit" [disabled]="!formControl.valid" *ngIf="data.flag === 1" (click)="postComment(formControl)">Pošalji</button>
+      <button mat-button type="submit" [disabled]="!formControl.valid" *ngIf="data.flag === 2" (click)="putComment()">Izmeni</button>
+      <button mat-button (click)="dialogRef.close()">Poništi</button>
+    </div>
+  </form>
+</div>
+
+<div class="container" *ngIf="data.flag === 3">
+  <h3 mat-dialog-title>Da li ste sigurni da želite da obrišete komentar?</h3>
+  <form class="mat-dialog-content" #formControl="ngForm">
+    <div mat-dialog-actions>
+      <button mat-button type="submit" [disabled]="!formControl.valid" *ngIf="data.flag === 3" (click)="deleteComment()">Obriši</button>
+      <button mat-button (click)="dialogRef.close()">Poništi</button>
+    </div>
+  </form>
+</div>

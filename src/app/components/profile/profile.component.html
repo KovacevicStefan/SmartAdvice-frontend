@@ -1,0 +1,23 @@
+<div class="bgd">
+    <div class="container py-5">
+        <div class="left-box slideanim">
+            <div class="info">
+                <img src="{{user?.avatar}}" width="200px" alt="">
+                <h2 class="name">{{user?.imePrezime}}</h2>
+                <p class="mail" >{{user?.email}}</p>
+                <a class="password" (click)="openDialog()">Promena lozinke</a>
+            </div>
+            <div class="buttons">
+                <a href="/email"><button class="btn btn-outline-dark">Email</button></a>
+                <a href="/news"><button class="btn btn-outline-dark">Blog</button></a>
+                <a href="/services-manage"><button class="btn btn-outline-dark">Usluge</button></a>
+                <button class="btn btn-outline-dark" (click)="logout()">Odjava</button>
+            </div>
+        </div>
+        <div class="right-box slideanim">
+            <p>Username: {{user?.username}}</p>
+            <p>Admin: {{user?.admin}}</p>
+            <p>Pridružila se: {{user?.createdAt}}</p>
+        </div>
+    </div>
+</div>

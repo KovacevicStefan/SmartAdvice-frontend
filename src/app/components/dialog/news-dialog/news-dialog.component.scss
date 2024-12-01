@@ -1,0 +1,63 @@
+mat-form-field {
+    width: 100%;
+}
+
+.container {
+    width: 900px; /* Postavite željenu visinu za manje ekrane */
+  }
+
+.text {
+    height: 350px !important;
+}
+
+@media (max-width: 1124px) {
+  .container {
+    width: 700px; /* Postavite željenu visinu za manje ekrane */
+  }
+}
+
+@media (max-width: 873px) {
+  .container {
+    width: 600px; /* Postavite željenu visinu za manje ekrane */
+  }
+}
+
+@media (max-width: 683px) {
+  .container {
+    width: 400px; /* Postavite željenu visinu za manje ekrane */
+  }
+}
+
+@media (max-width: 499px) {
+  .container {
+    width: 350px; /* Postavite željenu visinu za manje ekrane */
+  }
+}
+
+@media (max-width: 499px) {
+  .container {
+    width: 350px; /* Postavite željenu visinu za manje ekrane */
+  }
+}
+
+@media (max-width: 445px) {
+  .container {
+    width: 300px; /* Postavite željenu visinu za manje ekrane */
+  }
+}
+
+@media (max-width: 377px) {
+  .container {
+    width: 250px; /* Postavite željenu visinu za manje ekrane */
+  }
+}
+
+@media (max-height: 683px) {
+    .container {
+      height: 520px; /* Postavite željenu visinu za manje ekrane */
+    }
+
+    .text {
+        height: 270px !important;
+    }
+  }

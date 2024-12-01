@@ -1,0 +1,123 @@
+.ftco-section {
+    padding: 6em 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #dbdbdb;
+    
+}
+
+.bg-light {
+    background: #f5f4f0 !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.w-100 {
+    background-color: #fff;
+    width: 100% !important;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -25px;
+}
+
+.dbox {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.dbox .icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #cbb88c;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    position: relative;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -25px;
+}
+
+.dbox .icon span {
+    font-size: 30px;
+    color: #fff;
+}
+
+.dbox p {
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.contactForm .label {
+    color: #cbb88c !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.contactForm .form-control {
+    height: 36px;
+    background: #fff;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    background-color: #cbb88c;
+    color: #fff;
+}
+
+.button:hover {
+    background: #837659 !important;
+}
+
+.cf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute; top: 0px;
+    left: 0px;
+    background-color: rgb(229, 227, 223);
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+
+@keyframes anim {
+    from {
+      opacity: 1;
+      transform: translateX(5000px);
+    }
+  }
+  
+  .contactanim {
+    animation-name: anim;
+    animation-duration: 1s; /* Ukupno trajanje animacije */
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }

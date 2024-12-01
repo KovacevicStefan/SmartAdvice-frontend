@@ -1,0 +1,59 @@
+<div class="background">
+  <div class="container py-5 mat-elevation-z8">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Pretražite poruke">
+    </mat-form-field>
+  
+    <mat-table [dataSource]="emails" class="mat-cell" matSort>
+  
+      <ng-container matColumnDef="imePrezime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ime i prezime</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.imePrezime}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="naslov">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Naslov</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.naslov}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="poruka">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Poruka</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.poruka}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="datumVreme">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Datum i vreme</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.datumVreme | date:'medium'}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="viewMessage(1, row.id, row.naslov, row.poruka, row.imePrezime, row.email)">
+            <mat-icon>email</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteDialog(2, row.id, row.naslov, row.poruka, row.imePrezime, row.email)">
+            <mat-icon arial label="Delete">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns">
+        <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-header-row>
+  
+    </mat-table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"></mat-paginator>
+
+    <div class="underspace">
+      <button class="btn btn-outline-secondary" (click)="logout()">Odjava</button>
+    </div>
+    
+  </div>
+</div>

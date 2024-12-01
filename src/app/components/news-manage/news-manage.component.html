@@ -1,0 +1,51 @@
+<div class="background">     
+  <div class="container py-5 mat-elevation-z8">
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Pretražite novosti">
+    </mat-form-field>
+  
+    <mat-table [dataSource]="news" class="mat-cell" matSort>
+  
+      <ng-container matColumnDef="naslov">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Naslov</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.naslov}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="autor">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Autor</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.autor.imePrezime}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="datum">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Datum kreiranja</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.datum | date:'medium'}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="openDialog(2, row.id, row.naslov, row.autor, row.tekst)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="openDialog(3, row.id, row.naslov, row.autor, row.tekst)">
+            <mat-icon arial label="Delete">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns">
+        <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-header-row>
+  
+    </mat-table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"></mat-paginator>
+    <div class="underspace">
+      <button class="btn btn-outline-secondary" (click)="logout()">Odjava</button>
+      <button mat-fab class="fab-button" (click)="openDialog(1, 0, '', '', '')">
+        <mat-icon>add</mat-icon>
+      </button> 
+    </div>
+  </div>
+</div>

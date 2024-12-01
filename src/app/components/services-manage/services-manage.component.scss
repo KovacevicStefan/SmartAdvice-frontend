@@ -1,0 +1,55 @@
+.background {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.underspace {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  flex-grow:  1;
+  margin-top: 8px;
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.mat-column-text {
+  flex: 0 0 33.3%;
+}
+
+.mat-column-slika {
+  flex: 0 0 51.7%;
+}
+
+.mat-column-actions {
+  flex: 0 0 15%;
+}
+
+@media screen and (max-width: 768px) {
+  .mat-column-actions {
+    flex: 0 0 15%;
+    flex-direction: column;
+  }
+}
+
+.title-center {
+  margin: 0 auto;
+}

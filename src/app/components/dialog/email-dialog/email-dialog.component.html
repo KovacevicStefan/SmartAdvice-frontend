@@ -1,0 +1,26 @@
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag == 1">Naslov: <b>{{data.naslov}}</b></h3>
+    <h3 mat-dialog-title *ngIf="flag == 2">Da li stvarno želite da obrišete poruku <b>{{data.naslov}}</b></h3>
+    <form class="mat-dialog-content" #formControl="ngForm">
+
+      <mat-form-field>
+        <input matInput placeholder="imePrezime" readonly [(ngModel)]="data.imePrezime" name="naslov" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput readonly [(ngModel)]="data.email" name="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea class="text" matInput readonly [(ngModel)]="data.poruka" name="poruka" required>{{data.poruka}}</textarea>
+      </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button *ngIf="flag == 2" type="submit" [mat-dialog-close]="1" (click)="delete()">
+        Obriši
+      </button>
+      <button mat-button (click)="cancel()">
+        Poništi
+      </button>
+    </div>
+</form>
+</div>
+

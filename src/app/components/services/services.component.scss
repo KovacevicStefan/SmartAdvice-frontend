@@ -1,0 +1,199 @@
+.background {
+    background-color: #f8f9fa!important;
+    width: 100%;
+}
+
+.usluge{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.usluge h1 {
+    position: absolute;
+    bottom: 60px;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0;
+    text-align: center;
+    color:rgb(128, 114, 97)e;
+}
+
+.background-image {
+    background-image: url('services.jpg'); /* Postavite putanju do vaše slike */
+    background-size: cover; /* Prilagodi veličinu slike kako bi pokrila čitav div */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -25px;
+}
+
+.card-body {
+    background-color: #212529;
+    color:#f5f4f0 ;
+    border-radius: var(--bs-card-border-radius);
+    //border-bottom: 3px solid #cbb88c;
+    position: relative;
+    cursor: default;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.card-body:before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 10px; /* Visina border-a */
+    background-color: #cbb88c; /* Boja border-a */
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    z-index: 1; /* Z-index za pseudo-element */
+}
+
+.card-body:after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    height: 5px; /* Visina za maskiranje gornjih uglova */
+    background-color: #212529; /* Ista boja kao pozadina .card-body */
+    z-index: 2; /* Z-index iznad pseudo-elementa :before */
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.card-body:hover {
+    background-color: #52514f;
+    transition: 0.3s;
+}
+
+.card-body:hover:after {
+    background-color: #52514f;
+    transition: 0.3s;
+}
+
+.sbhead {
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 0;
+    color: #cbb88c;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.head {
+    font-size: 40px;
+    font-weight: 600px;
+}
+
+@media (max-width: 768px){
+    .head {
+        font-weight: 600;
+        font-size: 30px;
+    }
+
+    .card {
+        width: 330px;
+    }
+
+    .col-12 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100%;
+}
+    
+.div1 { 
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div2 {
+    grid-area: 2 / 2 / 2 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 474px) {
+    .div2 {
+        height: 110px;
+    }    
+}
+
+/*
+@keyframes animacija {
+    from {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);   
+    }
+}
+
+.slideanim {
+    animation-name: animacija;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+
+@keyframes animacija1 {
+    from {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);   
+    }
+}
+
+.slideanim1 {
+    animation-name: animacija1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+*/
+
+@keyframes anim {
+    from {
+      opacity: 1;
+      transform: translateX(5000px);
+    }
+  }
+  
+  .servicesanim {
+    animation-name: anim;
+    animation-duration: 1s; /* Ukupno trajanje animacije */
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }

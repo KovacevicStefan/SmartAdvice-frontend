@@ -1,0 +1,122 @@
+<div class="bckgrnd">
+    <div class="background-image about shd">
+        <div class="container py-5">
+            <div class="middle no-wrap">
+                <div class="news-heading">
+                    <h1 class="rp-heading">{{newsItem?.naslov}}</h1>
+                    <div class="text-white fst-italic mb-2">Postavljeno {{ newsItem?.datum | date:'dd.MM.yyyy.' }}</div>
+                    <a class="badge author text-decoration-none link-light" *ngIf="newsItem?.naslov !== 'Tatjana Vit' && newsItem?.naslov !== 'Ivana Sredojević'; else biografija">{{ newsItem?.autor?.imePrezime }}</a>
+                        <ng-template #biografija>
+                            <a class="badge author text-decoration-none link-light">Biografija</a>
+                        </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container picture-text-body">
+        <div class="middle">
+            <figure class="picture">
+                <img class="img-fluid rounded" *ngIf="newsItem?.naslov === 'Tatjana Vit'; else otherImage" src="./assets/about/news-banner-1.png" alt="...">
+                <ng-template #otherImage>
+                    <div *ngIf="newsItem?.naslov === 'Ivana Sredojević'; else defaultImage">
+                        <img class="img-fluid rounded" src="./assets/about/news-banner-2.png" alt="...">
+                    </div>
+                    <ng-template #defaultImage>
+                        <img class="img-fluid rounded img-width" src="./assets/newstry.png" alt="...">
+                    </ng-template>
+                    </ng-template>
+            </figure>
+            <div>
+                <div class="img-fluid line">
+                    <section class="mb-4 justify-content-center text-width" >
+                    <p class="mb-5 fs-5 text" [innerHtml]="newsItem?.tekst"></p>
+                </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5" style="display: flex; flex-direction: column;">
+        <div class="mb-5">
+            <div class="middle comment-section" style=" display: flex;  justify-content: space-between;" *ngIf="newsItem?.naslov !== 'Tatjana Vit' && newsItem?.naslov !== 'Ivana Sredojević'">
+                <h3 *ngIf="num! === 0">Nema komentara</h3>
+                <h3 *ngIf="num! === 1 || num! === 21">{{num}} komentar</h3>
+                <h3 *ngIf="num! > 1 && num! !== 21">{{num}} komentara</h3>
+                <button class="btn btn-gold" style="height: 50%;" (click)="openDialog(1, newsItem!.id, 0, 0)">Dodaj komentar</button>
+            </div>
+            <div *ngFor="let comment of comments">
+                <div class="middle comment-section" *ngIf="comment.replyTo === null">
+                    <div class="comment p-4 mb-3">
+                        <div class="top-line">
+                            <div class="av-name-date">
+                                <img src="./assets/about/comment.jpg" alt="try" width="35px" style="border-radius: 50%;">
+                                <div class="name-date">
+                                    <span class="name">{{comment.imePrezime}}</span>
+                                    <span class="date">{{comment.dateTime | date:'mediumDate'}}</span>
+                                </div>
+                            </div>
+                            <div class="votes">
+                                <a (click)="addPlus(comment)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill fill" viewBox="0 0 16 16">
+                                        <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                      </svg>
+                                    </a>
+                                <div class="plus">{{comment.plus}}</div>
+                                <a (click)="addMinus(comment)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill fill" viewBox="0 0 16 16">
+                                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                      </svg>
+                                    </a>
+                                <div class="minus">{{comment.minus}}</div>
+                            </div>
+                        </div>
+                        <p class="mt-16">{{comment.text}}</p>
+                        <div class="bottom-line" style="display: flex; justify-content: space-between;">
+                            <button class="btn btn-gold" (click)="openDialog(1, newsItem!.id, 0, comment.id)">Odgovori</button>
+                            <div *ngIf="canEditOrDelete(comment)" class="edit">
+                                <button class="btn" (click)="openDialog(2, newsItem!.id, comment, 0, comment.plus, comment.minus)">Uredi</button>
+                                <button class="btn" (click)="openDialog(3, newsItem!.id, comment)" >Obriši</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let reply of replys">
+                    <div class="middle comment-section pl-12" *ngIf="comment.id === reply.replyTo">
+                        <div class="comment p-4 mb-3">
+                            <div class="top-line">
+                                <div class="av-name-date">
+                                    <img src="./assets/about/comment.jpg" alt="try" width="35px" style="border-radius: 50%;">
+                                    <div class="name-date">
+                                        <span class="name">{{reply.imePrezime}}</span>
+                                        <span class="date">{{reply.dateTime | date:'mediumDate'}}</span>
+                                    </div>
+                                </div>
+                                <div class="votes">
+                                    <a (click)="addPlus(reply)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill fill" viewBox="0 0 16 16">
+                                            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                          </svg>
+                                        </a>
+                                    <div class="plus">{{reply.plus}}</div>
+                                    <a (click)="addMinus(reply)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill fill" viewBox="0 0 16 16">
+                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                          </svg>
+                                        </a>
+                                    <div class="minus">{{reply.minus}}</div>
+                                </div>
+                            </div>
+                            <p class="mt-16">{{reply.text}}</p>
+                            <div class="bottom-line" style="display: flex; justify-content: space-between;">
+                                <button class="btn btn-gold" (click)="openDialog(1, newsItem!.id, 0, comment.id)">Odgovori</button>
+                                <div *ngIf="canEditOrDelete(comment)" class="edit">
+                                    <button class="btn" (click)="openDialog(2, newsItem!.id, reply, comment.id, reply.plus, reply.minus)">Uredi</button>
+                                    <button class="btn" (click)="openDialog(3, newsItem!.id, reply, comment)" >Obriši</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

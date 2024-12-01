@@ -1,0 +1,52 @@
+<div class="row no-gutters contactanim">
+   <div class="col-md-7">
+     <div class="contact-wrap w-100 p-md-5 p-4">
+       <h3 class="mb-4">Kontakt</h3>
+       <form [formGroup]="contactForm" (ngSubmit)="send()" class="contactForm">
+         <div class="row">
+           <div class="col-md-6">
+             <div class="form-group">
+               <label class="label" for="name">ime i prezime</label>
+               <input type="text" class="form-control" formControlName="imePrezime" placeholder="Ime i prezime">
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="form-group">
+               <label class="label" for="email">Email adresa</label>
+               <input type="email" class="form-control" formControlName="email" placeholder="Email">
+             </div>
+           </div>
+           <div class="col-md-12">
+             <div class="form-group">
+               <label class="label" for="subject">Naslov poruke</label>
+               <input type="text" class="form-control" formControlName="naslov" placeholder="Naslov">
+             </div>
+           </div>
+           <div class="col-md-12">
+             <div class="form-group">
+               <label class="label" for="#">Poruka</label>
+               <textarea name="message" class="form-control" formControlName="poruka" cols="30" rows="4" placeholder="Ostavite nam kratku poruku"></textarea>
+             </div>
+           </div>
+           <div class="col-md-12">
+             <div class="form-group">
+               <input type="submit" value="Pošalji" class="btn button" *ngIf="isLogedId()">
+               <div class="submitting"></div>
+             </div>
+           </div>
+         </div>
+       </form>
+     </div>
+   </div>
+   <div class="col-md-5 order-md-first d-grid align-items-stretch">
+      <div class="map">
+         <div class="cf">
+               <div class="cont">
+                  <img src="assets/logocon.png" height="462" width="517px" alt="">
+               </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+

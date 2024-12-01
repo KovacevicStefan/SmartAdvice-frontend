@@ -1,0 +1,46 @@
+<div class="background">
+  <div class="container py-5 mat-elevation-z8">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Pretražite poruke">
+    </mat-form-field>
+  
+    <mat-table [dataSource]="services" class="mat-cell" matSort>
+  
+      <ng-container matColumnDef="text">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Naziv usluge</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.text}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="slika">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Slika</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.slika}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="openDialog(2, row.id, row.text, row.slika)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openDialog(3, row.id, row.text, row.slika)">
+              <mat-icon arial label="Delete">delete</mat-icon>
+            </button>
+          </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns">
+        <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-header-row>
+  
+    </mat-table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"></mat-paginator>
+    <div class="underspace">
+      <button class="btn btn-outline-secondary" (click)="logout()">Odjava</button>
+      <button mat-fab class="fab-button" (click)="openDialog(1, 0, '', '')">
+        <mat-icon>add</mat-icon>
+      </button> 
+    </div>
+    
+  </div>
+</div>

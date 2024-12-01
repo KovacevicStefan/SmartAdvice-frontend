@@ -1,0 +1,21 @@
+mat-form-field {
+    width: 100%;
+}
+
+.mat-dialog-content {
+    width: 100%;
+}
+
+.text {
+    height: 350px !important;
+}
+
+@media (max-height: 683px) {
+    .container {
+      height: 600px; /* Postavite željenu visinu za manje ekrane */
+    }
+
+    .text {
+        height: 270px !important;
+    }
+  }

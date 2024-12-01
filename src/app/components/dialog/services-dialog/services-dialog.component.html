@@ -1,0 +1,29 @@
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje usluge</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2">Modifikacija usluge</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3">Brisanje usluge</h3>
+    <form class="mat-dialog-content" #formControl="ngForm">
+        
+            <mat-form-field>
+              <input matInput placeholder="Naziv usluge" [(ngModel)]="data.text" name="naslov" [disabled]="flag == 3" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="URL adresa slike" [(ngModel)]="data.slika" name="slika" [disabled]="flag == 3" required>
+            </mat-form-field>
+
+          <div mat-dialog-actions>
+            <button mat-button *ngIf="flag == 1" type="submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">
+              Sačuvaj
+            </button>
+            <button mat-button *ngIf="flag == 2" type="submit" [mat-dialog-close]="1" (click)="update()" [disabled]="!formControl.valid">
+              Sačuvaj
+            </button>
+            <button mat-button *ngIf="flag == 3" type="submit" [mat-dialog-close]="1" (click)="delete()">
+              Obriši
+            </button>
+            <button mat-button (click)="cancel()">
+              Poništi
+            </button>
+          </div>
+    </form>
+</div>          

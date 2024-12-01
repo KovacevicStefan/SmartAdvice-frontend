@@ -1,0 +1,228 @@
+.about {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.about h1 {
+    position: absolute;
+    bottom: 60px;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.check {
+    fill: #cbb88c;
+}
+
+.background-image {
+    background-image: url('about.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -25px;
+  }
+
+.team {
+    height: 700px;
+    background-color: #fff;
+    position: relative;
+}
+
+/*.check {
+    filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.45));
+}*/
+
+.head {
+    font-size: 40px;
+    font-weight: 600px;
+}
+
+@media (max-width: 499px) {
+    .about {
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .logo-p {
+        margin-bottom: 15px;
+    }
+
+    .head {
+        font-weight: 600;
+        font-size: 30px;
+    }
+    
+    .about h1 {
+        position: absolute;
+        bottom: 40px;
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 56px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .whyas {
+        text-align: center;
+    }
+
+    .mission {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .parag {
+        font-size: 1.25rem !important;
+        width: 90%;
+        text-align: justify;
+    }
+
+    .button-center {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+    }
+
+    .only-one {
+        width: 300px;
+    }
+
+    .line {
+        display: flex;
+        justify-content: center;
+    }
+
+    .wdt {
+        width: 90%;
+    }
+
+    .image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .phone-size {
+        width: 300px;
+    }
+}
+
+.bortop {
+    border-top: 1px solid #e0e0e0;
+}
+
+.naslov {
+    text-align: center;
+}
+
+.cilj {
+    background-color: #fff;
+}
+
+.card-font {
+    color: #fff;
+}
+
+.sbhead {
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 0;
+    color: #cbb88c;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.sbhead-at {
+    display: inline-block;
+    margin-bottom: 0;
+    color: #cbb88c;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.brd {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;    
+}
+
+.img-fluid {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -25px;
+}
+
+.card-img-top {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -25px;
+}
+
+
+@keyframes anim {
+    from {
+      opacity: 1;
+      transform: translateX(-5000px);
+    }
+  }
+  
+  .aboutanim1 {
+    animation-name: anim;
+    animation-duration: 1s; /* Ukupno trajanje animacije */
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes anim2 {
+    from {
+      opacity: 1;
+      transform: translateX(5000px);
+    }
+  }
+  
+  .aboutanim2 {
+    animation-name: anim2;
+    animation-duration: 1s; /* Ukupno trajanje animacije */
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes anim3 {
+    from {
+      opacity: 0;
+      transform: translateY(300px);
+    }
+  }
+  
+  .aboutanim3 {
+    animation-name: anim3; 
+    animation-duration: 1s; /* Ukupno trajanje animacije */
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
